@@ -64,8 +64,6 @@
 **Структура:**
 
 1) Абстрактный класс [BaseConverter](src/main/java/org/work/task3/BaseConverter.java). Содержит в себе:
-    - Введенное пользователем значение.
-    - Полученный результат вычислений.
     - Абстрактный метод convert() для реализации вычислений классами-наследниками.
 2) Классы наследники:
     - [FahrenheitConverter](src/main/java/org/work/task3/FahrenheitConverter.java) - переводит введенную пользователем
