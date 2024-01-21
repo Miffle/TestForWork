@@ -2,27 +2,23 @@ package org.work.task1;
 
 import java.util.Arrays;
 import java.util.Random;
-
+/**
+ * Класс создаёт массив "случайного" размера (размер массива в диапазоне от 1, до 50) и заполняет его вещественными числами.
+ * Максимальное и минимальное число вычисляются во время заполнения массива.
+ * Сумма считается сразу после заполнения.
+ */
 public class ThreeNumbers {
-    /**
-     * Класс создаёт массив "случайного" размер от 1, до 50.
-     * Заполняет его случайными вещественными числами.
-     * Максимальное и минимальное число вычисляются во время заполнения массива.
-     * Сумма считается сразу после заполнения.
-     */
     private double[] array;
     private int arrayLength;
     private double maxNum = Double.MIN_VALUE;
     private double minNum = Double.MAX_VALUE;
     private double avg;
     private double sum;
-
     public ThreeNumbers() {
         initArray();
         fillArray();
 
     }
-
     private void fillArray() {
         for (int i = 0; i < array.length; i++) {
             array[i] = Math.random();

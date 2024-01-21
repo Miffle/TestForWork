@@ -2,14 +2,15 @@ package org.work.task1;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 
+@DisplayName("Тесты первого задания")
 class ThreeNumbersTest {
     private double[] testArray;
     private ThreeNumbers firstTask;
-
     @BeforeEach
     void getTestArray() {
         firstTask = new ThreeNumbers();

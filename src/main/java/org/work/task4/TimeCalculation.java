@@ -6,7 +6,7 @@ public class TimeCalculation {
      * минуты от 0, до 59), переводит каждую величину в градусы относительно 12 часов. Например, 2 часа - 60 градусов,
      * 30 минут - 180 градусов. Выводит в консоль модуль разности между часами и минутами.
      *
-     * @param hours часы (int)
+     * @param hours   часы (int)
      * @param minutes минуты (int)
      */
     public static void calculateDegree(int hours, int minutes) {
@@ -32,7 +32,7 @@ public class TimeCalculation {
     }
 
     private static double convertHoursToDegree(int hours, int minutes) {
-        return hours * 30 + minutes / 60.0 * 30;
+        return hours * 30 + minutes / 2.0;
     }
 
     private static int validateHours(int hours) {

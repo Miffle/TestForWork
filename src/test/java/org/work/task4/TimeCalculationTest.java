@@ -2,11 +2,13 @@ package org.work.task4;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
+@DisplayName("Тесты четвертого задания")
 class TimeCalculationTest {
     private final String OUTPUT_STRING = "Результат: %.2f";
     private ByteArrayOutputStream out;
