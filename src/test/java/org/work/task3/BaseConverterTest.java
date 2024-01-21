@@ -4,79 +4,58 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.PrintStream;
-
 @DisplayName("Тесты третьего задания")
 class BaseConverterTest {
-    private ByteArrayInputStream in;
-    private ByteArrayOutputStream out;
-    private final String OUTPUT_STRING = "Результат конвертации - %.2f";
-
+    private BaseConverter converter;
     @Test
     void convertToFahrenheitFirstTest() {
-        in = new ByteArrayInputStream("109,84".getBytes());
-        convertToFahrenheit();
-        Assertions.assertEquals(String.format(OUTPUT_STRING, 229.71), out.toString());
+        createFahrenheitConverter();
+        Assertions.assertEquals(53.6, converter.convert(12));
     }
+
     @Test
     void convertToFahrenheitSecondTest() {
-        in = new ByteArrayInputStream("14,98".getBytes());
-        convertToFahrenheit();
-        Assertions.assertEquals(String.format(OUTPUT_STRING, 58.96), out.toString());
+        createFahrenheitConverter();
+        Assertions.assertEquals(610.52, converter.convert(321.4));
     }
+
     @Test
     void convertToFahrenheitThirdTest() {
-        in = new ByteArrayInputStream("423,11".getBytes());
-        convertToFahrenheit();
-        Assertions.assertEquals(String.format(OUTPUT_STRING, 793.60), out.toString());
+        createFahrenheitConverter();
+        Assertions.assertEquals(-26.97, converter.convert(-32.76));
     }
+
     @Test
     void convertToKelvinsFirstTest() {
-        in = new ByteArrayInputStream("-23,8".getBytes());
         convertToKelvins();
-        Assertions.assertEquals(String.format(OUTPUT_STRING, 249.35), out.toString());
+        Assertions.assertEquals(249.35, converter.convert(-23.8));
     }
+
     @Test
     void convertToKelvinsSecondTest() {
-        in = new ByteArrayInputStream("326,54".getBytes());
         convertToKelvins();
-        Assertions.assertEquals(String.format(OUTPUT_STRING, 599.69), out.toString());
+        Assertions.assertEquals(599.69, converter.convert(326.54));
     }
+
     @Test
     void convertToKelvinsThirdTest() {
-        in = new ByteArrayInputStream("0".getBytes());
         convertToKelvins();
-        Assertions.assertEquals(String.format(OUTPUT_STRING, 273.15), out.toString());
+        Assertions.assertEquals(273.15, converter.convert(0));
     }
 
     /**
-     * Метод создаёт объект класса FahrenheitConverter, вводит начальное значение и вызывает метод получающий результат вычислений
+     * Метод создаёт объект класса FahrenheitConverter
      */
-    private void convertToFahrenheit() {
-        System.setIn(in);
-        BaseConverter converter = new FahrenheitConverter();
-        getResult(converter);
+    private void createFahrenheitConverter() {
+        converter = new FahrenheitConverter();
     }
+
     /**
-     * Метод создаёт объект класса KelvinsConverter, вводит начальное значение и вызывает метод получающий результат вычислений
+     * Метод создаёт объект класса KelvinsConverter
      */
     private void convertToKelvins() {
-        System.setIn(in);
-        BaseConverter converter = new KelvinsConverter();
-        getResult(converter);
+        converter = new KelvinsConverter();
     }
 
-    /**
-     * Метод считывающий результат вычисления
-     * @param converter объект класса-конвертера
-     */
-    private void getResult(BaseConverter converter) {
-        out = new ByteArrayOutputStream();
-        System.setOut(new PrintStream(out));
-        converter.convert();
-        System.out.print(converter);
-    }
 
 }

@@ -1,20 +1,8 @@
 package org.work.task3;
 
 public abstract class BaseConverter {
-    protected double inputVal;
-    protected double resultVal;
-
-    public BaseConverter() {
-        inputVal = InputValidator.getCelsiusFromUser();
-    }
-
     /**
-     * Метод, используемы для конвертации. Внутри вычисляется значение переменной resultVal по нужной формуле
+     * Метод, используемы для конвертации. Внутри происходит конвертация по нужной формуле и возвращается полученное значение
      */
-    public abstract void convert();
-
-    @Override
-    public String toString() {
-        return String.format("Результат конвертации - %.2f", resultVal);
-    }
+    public abstract double convert(double inputVal);
 }
